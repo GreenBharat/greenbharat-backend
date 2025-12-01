@@ -230,24 +230,11 @@ app.post("/trips/:id/end", (req, res) => {
   res.json({ trip });
 });
 
-// Trip history - rider
-app.get("/riders/:id/trips", (req, res) => {
-  const { id } = req.params;
-  const riderTrips = trips.filter((t) => t.riderId === id);
-  res.json({ trips: riderTrips });
-});
-
-// Trip history - driver
-app.get("/drivers/:id/trips", (req, res) => {
-  const { id } = req.params;
-  const driverTrips = trips.filter((t) => t.driverId === id);
-  res.json({ trips: driverTrips });
-});
-
 // =========================
 //       START SERVER
 // =========================
 const PORT = process.env.PORT || 4000;
+
 app.listen(PORT, () => {
   console.log(`GreenBharat backend running on port ${PORT}`);
 });
